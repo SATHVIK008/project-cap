@@ -21,7 +21,7 @@ genai.configure(api_key=google_api_key)
 
 
 def display_logos():
-    st.image("D:\projects\IPAMS2\ipams_logo(1).png", width=60) 
+    st.image("ipams_logo(1).png", width=60) 
 display_logos()
 
 def generate_summary_prompt(comments):

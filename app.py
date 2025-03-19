@@ -39,18 +39,6 @@ def extract_text_from_pdf(pdf_file):
     text = [page.extract_text() for page in reader.pages]
     return text
 
-def analyze_answers_with_ai(answers):
-    answers_text = "\n".join(f"Q{i+1}: {answers[i]}" for i in range(len(answers)))
-    prompt = f"IGNORE THE SKIPPED QUESTIONS. Analyze the following answers to interview questions. Provide Overall Feedback, positive points about candidate and places to improve in 5 lines.:\n\n{answers_text}"
-    model = genai.GenerativeModel('gemini-1.5-flash')
-    response = model.generate_content(prompt)
-    return response.text
-
-def transcribe_video(video_path):
-    transcriber = aai.Transcriber()
-    transcript = transcriber.transcribe(video_path)
-    return transcript.text
-
 def generate_pdf(analysis_report):
     pdf = FPDF()
     pdf.add_page()
